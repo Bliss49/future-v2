@@ -1,12 +1,3 @@
----
-name: Feature request
-about: 작업 사항을 입력해 주세요.
-title: ''
-labels: ''
-assignees: ''
-
----
-
 ## 개요
 
 > <!-- 작업 목적 및 개요 작성 -->
