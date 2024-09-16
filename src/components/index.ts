@@ -5,6 +5,5 @@ export * from "./Image";
 export * from "./Input";
 export * from "./List";
 export * from "./Radio";
-export * from "./SvgIcon";
 export * from "./Table";
 export * from "./Typography";

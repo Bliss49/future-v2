@@ -1,5 +1,5 @@
 import { StoryObj } from "@storybook/react";
-import Image from "./index";
+import Image, { EImageType } from "./index";
 
 const meta = {
   title: "Image",
@@ -15,6 +15,15 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
-    children: "Default Image",
+    src: "",
+    alt: "",
+  },
+};
+
+export const ImgBg: Story = {
+  args: {
+    type: EImageType.Img_Bg,
+    src: "",
+    alt: "",
   },
 };
