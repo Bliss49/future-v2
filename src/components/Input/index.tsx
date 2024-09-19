@@ -3,15 +3,11 @@ import {
   IInputStyleProps,
   InputContainer,
   EInputStatus,
-  TInputSize,
-  TInputType,
 } from "./Input.style";
 
-export interface InputProps extends IInputStyleProps {
-  type: TInputType;
+export interface IInputProps extends IInputStyleProps {
   value: string;
   ariaLabel: string;
-  status: EInputStatus;
   onChange: ChangeEventHandler<HTMLInputElement>;
   isDisabled?: boolean;
   isReadOnly?: boolean;
@@ -19,24 +15,24 @@ export interface InputProps extends IInputStyleProps {
 }
 
 export const Input = ({
-  type = "text",
+  type,
   value,
   ariaLabel,
-  status,
+  status = EInputStatus.DEFAULT,
   onChange,
-  size = "medium",
+  inputSize = "medium",
   textAlign = "center",
   isDisabled = false,
   isReadOnly = false,
   placeholder = "",
-}: InputProps) => {
+}: IInputProps) => {
   return (
     <InputContainer
       type={type}
       value={value}
       aria-label={ariaLabel}
       status={status}
-      size={size}
+      inputSize={inputSize}
       textAlign={textAlign}
       onChange={onChange}
       disabled={isDisabled}

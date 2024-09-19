@@ -12,16 +12,24 @@ export type TInputTextAlign = "left" | "center" | "right";
 
 export interface IInputStyleProps {
   type: TInputType;
-  status: EInputStatus;
-  size?: TInputSize;
+  status?: EInputStatus;
+  inputSize?: TInputSize;
   textAlign?: TInputTextAlign;
 }
 
 export const InputContainer = styled.input<IInputStyleProps>`
+  border-radius: 8px;
+
+  :focus {
+    background-color: #f4f8ff;
+    border: 2px solid #1e6efa;
+    outline: none;
+  }
+
   ${({ textAlign }) => textAlign && `text-align: ${textAlign};`}
 
-  ${({ size }) => {
-    switch (size) {
+  ${({ inputSize }) => {
+    switch (inputSize) {
       case "x-small": {
         return `
           height: 48px;
@@ -73,16 +81,6 @@ export const InputContainer = styled.input<IInputStyleProps>`
         border: 1px solid #8D9299
         `;
       }
-      default: {
-        return "";
-      }
     }
   }};
-  :focus {
-    background-color: #f4f8ff;
-    border: 2px solid #1e6efa;
-    outline: none;
-  }
-
-  border-radius: 8px;
 `;
