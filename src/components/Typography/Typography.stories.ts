@@ -18,3 +18,10 @@ export const Default: Story = {
     children: "Default Typography",
   },
 };
+
+export const TextDecoration: Story = {
+  args: {
+    children: "TextDecoration Typography",
+    textDecoration: "underline",
+  },
+};
