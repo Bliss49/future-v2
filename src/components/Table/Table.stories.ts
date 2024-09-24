@@ -1,5 +1,5 @@
 import { StoryObj } from "@storybook/react";
-import { Table } from "./index";
+import Table from "./index";
 
 const meta = {
   title: "Table",
@@ -15,7 +15,6 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
-    caption: 'caption',
-    children: 'Table'
+    children: "Default Table",
   },
 };
