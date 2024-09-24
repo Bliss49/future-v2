@@ -1,6 +1,11 @@
-import { ButtonContainer } from "./Button.style";
+import {
+  ButtonContainer,
+  EButtonShape,
+  EButtonStyle,
+  IButtonStyled,
+} from "./Button.style";
 
-interface IButtonProps {
+interface IButtonProps extends IButtonStyled {
   ariaLabel: string;
   title?: string;
   disabled?: boolean;
@@ -13,6 +18,9 @@ const Button = ({
   ariaLabel,
   title = "",
   disabled = false,
+  color = EButtonStyle.DEFAULT,
+  shape = EButtonShape.DEFAULT,
+  size = "medium",
   children,
   style,
   onClick,
@@ -27,7 +35,10 @@ const Button = ({
       type="button"
       aria-label={ariaLabel}
       title={title}
+      color={color}
       disabled={disabled}
+      shape={shape}
+      size={size}
       style={style}
       onClick={handleClick}
     >
