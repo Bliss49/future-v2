@@ -7,31 +7,31 @@ import {
   THContainer,
   TDContainer,
   ITableContainer,
-  ITDContainer,
+  ICellContainer,
 } from "./Table.style";
 
 export type TScope = "row" | "col";
 
-interface IChilden {
+interface IChildren {
   children: React.ReactNode;
 }
 
-export interface ITable extends ITableContainer, IChilden {
+export interface ITable extends ITableContainer, IChildren {
   caption: string;
   colgroup?: string[];
 }
 
-interface IThead extends IChilden {
+interface IThead extends IChildren, ICellContainer {
   scope: TScope;
 }
 
-interface ITD extends ITDContainer, IChilden {
+interface ITD extends ICellContainer, IChildren {
   colSpan?: number;
   rowSpan?: number;
   cssStyle?: React.CSSProperties;
 }
 
-export const Table:React.FC<ITable> = ({
+export const Table: React.FC<ITable> = ({
   width = "auto",
   height = "auto",
   caption,
@@ -53,29 +53,44 @@ export const Table:React.FC<ITable> = ({
   );
 };
 
-export const THead = ({ children }: IChilden) => {
+export const THead = ({ children }: IChildren) => {
   return <THeadContainer>{children}</THeadContainer>;
 };
 
-export const TBody = ({ children }: IChilden) => {
+export const TBody = ({ children }: IChildren) => {
   return <TBodyContainer>{children}</TBodyContainer>;
 };
 
-export const TFoot = ({ children }: IChilden) => {
+export const TFoot = ({ children }: IChildren) => {
   return <TFootContainer>{children}</TFootContainer>;
 };
 
-export const TR = ({ children }: IChilden) => {
+export const TR = ({ children }: IChildren) => {
   return <TRContainer>{children}</TRContainer>;
 };
 
-export const TH = ({ scope, children }: IThead) => {
-  return <THContainer scope={scope}>{children}</THContainer>;
+export const TH = ({ scope, align = "center", children }: IThead) => {
+  return (
+    <THContainer scope={scope} align={align}>
+      {children}
+    </THContainer>
+  );
 };
 
-export const TD = ({ colSpan, rowSpan, children, cssStyle }: ITD) => {
+export const TD = ({
+  colSpan,
+  rowSpan,
+  align = "center",
+  children,
+  cssStyle,
+}: ITD) => {
   return (
-    <TDContainer colSpan={colSpan} rowSpan={rowSpan} style={cssStyle}>
+    <TDContainer
+      colSpan={colSpan}
+      rowSpan={rowSpan}
+      align={align}
+      style={cssStyle}
+    >
       {children}
     </TDContainer>
   );

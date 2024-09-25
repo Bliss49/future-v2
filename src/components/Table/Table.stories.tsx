@@ -1,5 +1,5 @@
 import { StoryFn, Meta } from "@storybook/react";
-import { ITable, THead, Table, TR, TH, TBody, TD, TFoot } from "./index";
+import { THead, Table, TR, TH, TBody, TD, TFoot, ITable } from "./index";
 
 const meta = {
   title: "Table",
@@ -12,9 +12,9 @@ const meta = {
 
 export default meta;
 
-export const Default: StoryFn<typeof Table> = () => {
+export const Default: StoryFn<typeof Table> = ({ ...args }: ITable) => {
   return (
-    <Table caption="table">
+    <Table {...args}>
       <THead>
         <TR>
           <TH scope="row">헤더셀1</TH>
@@ -58,4 +58,11 @@ export const Default: StoryFn<typeof Table> = () => {
       </TFoot>
     </Table>
   );
+};
+
+export const TableDefault: StoryFn<typeof Table> = Default.bind({});
+TableDefault.args = {
+  caption: "table caption",
+  width: "600px",
+  height: "300px",
 };
