@@ -1,4 +1,9 @@
-import { BoxContainer, BoxWrapContainer, IBoxStyle, IBoxWrapStyle } from "./Box.style";
+import {
+  BoxContainer,
+  BoxWrapContainer,
+  IBoxStyle,
+  IBoxWrapStyle,
+} from "./Box.style";
 
 export interface IBoxPropsWrap extends IBoxWrapStyle {
   children: React.ReactNode;
@@ -6,6 +11,7 @@ export interface IBoxPropsWrap extends IBoxWrapStyle {
 
 export interface IBoxProps extends IBoxStyle {
   children?: React.ReactNode;
+  id?: string;
 }
 
 export const BoxWrap = ({ children, boxGap = 24 }: IBoxPropsWrap) => {
@@ -20,9 +26,11 @@ export const Box = ({
   useShadow = false,
   vAlign,
   hAlign,
+  id,
 }: IBoxProps) => {
   return (
     <BoxContainer
+      id={id}
       type={type}
       useFull={useFull}
       useRound={useRound}
