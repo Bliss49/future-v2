@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export type TDirection = "horizontal" | "vertical";
+type TDirection = "horizontal" | "vertical";
 
 export interface IListStyle {
   align?: TDirection;
