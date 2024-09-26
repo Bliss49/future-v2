@@ -9,6 +9,7 @@ const meta = {
   },
   tags: ["autodocs"],
 };
+
 export default meta;
 
 type Story = StoryObj<typeof meta>;
