@@ -24,7 +24,7 @@ export function List<T>({
   return (
     <ListContainer align={align}>
       {typeof children === "function"
-        ? data?.map((val, idx) => (
+        ? data.map((val, idx) => (
             <ListItem key={`list-row-${idx}`} align={align} gap={gap}>
               {children({
                 index: idx + 1,
