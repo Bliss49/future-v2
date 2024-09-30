@@ -9,6 +9,7 @@ export interface ICheckBoxStyle {
 }
 
 export const CheckBoxContainer = styled.label`
+  position: relative;
   cursor: pointer;
 `;
 
@@ -18,8 +19,11 @@ export const CheckBoxStyle = styled.input<ICheckBoxStyle>`
   border: none;
   background: none;
   appearance: none;
+  width: 100%;
+  height: 100%;
+  margin: 0;
 
-  ${({ styleType, iconSize }) =>
+  ${({ styleType }) =>
     styleType === "box"
       ? `
       &:checked + * {
@@ -27,9 +31,6 @@ export const CheckBoxStyle = styled.input<ICheckBoxStyle>`
       }
   `
       : `
-      
-    min-width: ${iconSize};
-    min-height: ${iconSize};
     &:checked + * {
       border: 1px solid #1e6efa;
       background-color: #1e6efa;
