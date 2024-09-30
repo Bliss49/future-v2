@@ -15,6 +15,18 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
-    children: "Default CheckBox",
+    id: "checkBox1",
+    name: "checkBox-Group",
+    ariaLabel: "checkBox Button",
+  },
+};
+
+export const Box: Story = {
+  args: {
+    children: "컨텐츠에 맞는 체크박스",
+    styleType: "box",
+    id: "checkBox1",
+    name: "checkBox-Group",
+    ariaLabel: "checkBox Button",
   },
 };
